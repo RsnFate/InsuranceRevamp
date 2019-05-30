@@ -6,11 +6,15 @@ import java.time.format.DateTimeFormatter;
 
 import enumLibrary.*;
 
+
 public class Perusahaan {
+	static Prospect resultProspect;
 	private static HashMap<Integer, Prospect> prospectList = new HashMap<Integer, Prospect>();
 	private static HashMap<String, String> nasabahList = new HashMap<String, String>();
 	private static HashMap<String, Product> productList = new HashMap<String, Product>();
 	private static Scanner scanner = new Scanner(System.in);
+	
+	
 	
 	public void setProduct()
 	{
@@ -128,7 +132,7 @@ public class Perusahaan {
 		System.out.println("Payment Method");
 		String paymentMethod = scanner.nextLine();
 		
-		Prospect resultProspect = prospectList.get(nomorProspect);
+		resultProspect = prospectList.get(nomorProspect);
 		resultProspect.setCustomerStatus(CustomerStatus.NASABAH);
 		
 		
@@ -141,7 +145,6 @@ public class Perusahaan {
 //				resultProspect.getTanggalLahir(), resultProspect.getTempatLahir(), resultProspect.getPekerjaan(), resultProspect.getProspectID(),
 //				resultProspect.getCustomerStatus(), idNasabah, inputKTP, statusKK, paymentMethod);
 		
-		Nasabah newNasabah = new Nasabah();
 		
 		
 	}
