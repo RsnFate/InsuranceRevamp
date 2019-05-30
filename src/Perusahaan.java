@@ -8,7 +8,7 @@ import enumLibrary.*;
 
 
 public class Perusahaan {
-	static Prospect resultProspect;
+	private static Prospect resultProspect = new Prospect();
 	private static HashMap<Integer, Prospect> prospectList = new HashMap<Integer, Prospect>();
 	private static HashMap<String, String> nasabahList = new HashMap<String, String>();
 	private static HashMap<String, Product> productList = new HashMap<String, Product>();
@@ -93,10 +93,10 @@ public class Perusahaan {
 	public void switchNasabah()
 	{
 		System.out.println("Input Nomor Prospect Yang Ingin Jadi Nasabah");
-		input = scanner.nextLine();
-		Integer.parseInt(input);
+		int input = scanner.nextInt();
+		scanner.nextLine();
 		
-		Prospect resultProspect = prospectList.get(input);
+		resultProspect = prospectList.get(input);
 		resultProspect.setCustomerStatus(CustomerStatus.NASABAH);
 	}
 	
@@ -140,6 +140,7 @@ public class Perusahaan {
 		
 		String idNasabah = makeIDNasabah(resultProspect.getProspectID());
 		
+		namaDepan =
 		
 //		Nasabah newNasabah = new Nasabah(resultProspect.getNamaDepan(), resultProspect.getNamaBelakang(), resultProspect.getJenisKelamin(),
 //				resultProspect.getTanggalLahir(), resultProspect.getTempatLahir(), resultProspect.getPekerjaan(), resultProspect.getProspectID(),
