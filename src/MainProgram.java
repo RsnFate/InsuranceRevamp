@@ -62,7 +62,7 @@ public class MainProgram {
 	public static void menuProspect(Scanner scanner)
 	{
 		//TODO function to printSummaryProspect
-		
+		Perusahaan.printProspectSummaryList();
 		printMenuProspect();
 		String input = scanner.nextLine().trim();
 		boolean validasi = validasiInput(input, 4);
@@ -75,11 +75,43 @@ public class MainProgram {
 		{
 			case "1":
 				//TODO: Function to add a person into customer list (prospect and nasabah included)
-				Asuransi.addProspect();
+				Perusahaan.addProspect();
+				menuProspect(scanner);
+			case "2":
+				//TODO: Function to flick the switch to Nasabah not complete
+				Perusahaan.addNasabah();
+				menuProspect(scanner);
+				break;
+			case "3":
+				mainMenu(scanner);
+			case "4":
+				System.exit(0);
+			default:
+				System.out.println("Ada Masalah Dengan Program Ini");
+		}
+	}
+	
+	public static void menuCustomer(Scanner scanner)
+	{
+		//TODO function to printSummaryProspect
+		
+		printMenuCustomer();
+		String input = scanner.nextLine().trim();
+		boolean validasi = validasiInput(input, 4);
+		if(validasi == false)
+		{
+			menuCustomer(scanner);
+		}
+		
+		switch(input)
+		{
+			case "1":
+				//TODO: Function to add a person into customer list (prospect and nasabah included)
+				
 				break;
 			case "2":
 				//TODO: Function to flick the switch to Nasabah not complete
-				Asuransi.addNasabah();
+				
 			case "3":
 				mainMenu(scanner);
 			case "4":
@@ -104,12 +136,15 @@ public class MainProgram {
 		{
 			case "1":
 				menuProspect(scanner);
+				break;
 			case "2":
 				menuCustomer(scanner);
+				break;
 			case "3":
 				System.exit(0);
 			default:
 				System.out.println("Ada Masalah Dengan Program Ini");
+				break;
 		}
 		
 	}

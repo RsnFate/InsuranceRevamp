@@ -12,11 +12,12 @@ public class Person {
 	protected String tempatLahir;
 	protected String pekerjaan;
 	
-	public Person(String namaDepan, String namaBelakang, LocalDate tanggalLahir, String tempatLahir, String pekerjaan)
+	public Person(String namaDepan, String namaBelakang, LocalDate tanggalLahir, Gender jenisKelamin, String tempatLahir, String pekerjaan)
 	{
 		this.namaDepan = namaDepan;
 		this.namaBelakang = namaBelakang;
 		this.tanggalLahir = tanggalLahir;
+		this.jenisKelamin = jenisKelamin;
 		this.tempatLahir = tempatLahir;
 		this.pekerjaan = pekerjaan;
 	}
@@ -26,9 +27,9 @@ public class Person {
 		return namaDepan;
 	}
 	
-	public void setNamaDepan()
+	public void setNamaDepan(String namaDepan)
 	{
-		this.namaBelakang =  namaBelakang;
+		this.namaDepan =  namaDepan;
 	}
 	
 	public String getNamaBelakang()
@@ -36,7 +37,7 @@ public class Person {
 		return namaBelakang;
 	}
 	
-	public void setNamaBelakang()
+	public void setNamaBelakang(String namaBelakang)
 	{
 		this.namaBelakang = namaBelakang;
 	}
@@ -46,7 +47,7 @@ public class Person {
 		return tanggalLahir;
 	}
 	
-	public void setTanggalLahir()
+	public void setTanggalLahir(LocalDate tanggalLahir)
 	{
 		this.tanggalLahir = tanggalLahir;
 	}
@@ -66,7 +67,15 @@ public class Person {
 		
 		return pekerjaan;
 	}
+	public void setPekerjaan(String pekerjaan)
+	{
+		this.pekerjaan = pekerjaan;
+	}
 	
+	public Gender getJenisKelamin()
+	{
+		return jenisKelamin;
+	}
 	
 	
 	

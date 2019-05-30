@@ -9,9 +9,9 @@ public class Prospect extends Person {
 	protected int prospectID;
 	protected CustomerStatus customerStatus;
 	
-	public Prospect(String namaDepan, String namaBelakang, LocalDate tanggalLahir, String tempatLahir,
+	public Prospect(String namaDepan, String namaBelakang, Gender jenisKelamin, LocalDate tanggalLahir, String tempatLahir,
 			String pekerjaan, int prospectID, CustomerStatus customerStatus) {
-		super(namaDepan, namaBelakang, tanggalLahir, tempatLahir, pekerjaan);
+		super(namaDepan, namaBelakang, tanggalLahir, jenisKelamin, tempatLahir, pekerjaan);
 		// TODO Auto-generated constructor stub
 		this.prospectID = prospectID;
 		this.customerStatus = customerStatus;
@@ -37,10 +37,16 @@ public class Prospect extends Person {
 		this.customerStatus = customerStatus;
 	}
 	
+	public String setCompleteName()
+	{
+		String completeName = String.format("%s %s", namaDepan, namaBelakang);
+		return completeName;
+	}
+	
 	public String printSummaryProspect()
 	{
-		String summaryProspect = String.format("No: %s, %s %s, %s, %s(%s), %s,%s", 
-				this.prospectID, this.namaDepan, this.namaBelakang, this.tanggalLahir, this.tempatLahir, this.pekerjaan, this.customerStatus);
+		String summaryProspect = String.format("No: %d, %s, %s, %s(%s),%s,%s", 
+				this.prospectID, setCompleteName(), this.jenisKelamin, this.tanggalLahir, this.tempatLahir, this.pekerjaan, this.customerStatus);
 		return summaryProspect;
 	}
 	

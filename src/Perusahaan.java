@@ -11,7 +11,6 @@ public class Perusahaan {
 	private static HashMap<String, String> nasabahList = new HashMap<String, String>();
 	private static HashMap<String, Product> productList = new HashMap<String, Product>();
 	private static Scanner scanner = new Scanner(System.in);
-	private static String input;
 	
 	public void setProduct()
 	{
@@ -37,9 +36,10 @@ public class Perusahaan {
 		
 	}
 	
-	public void addProspect()
+	//-------------------------------FUNGSI - FUNGSI UNTUK MENU PROSPECT---------------------------------------
+	public static void addProspect()
 	{
-		Scanner scanner = new Scanner(System.in);
+		
 		String input;
 		
 		System.out.println("Input Nama Depan: ");
@@ -80,15 +80,15 @@ public class Perusahaan {
 		
 		CustomerStatus customerStatus = CustomerStatus.PROSPECT;
 		
-		Prospect person = new Prospect(namaDepan, namaBelakang, date, tempatLahir,pekerjaan, prospectID, customerStatus);
+		Prospect person = new Prospect(namaDepan, namaBelakang, gender, date, tempatLahir,pekerjaan, prospectID, customerStatus);
 		
 		prospectList.put(person.prospectID, person);
 		
 	}
-	
+
 	public void switchNasabah()
 	{
-		System.out.println("Input Nomor Prospect");
+		System.out.println("Input Nomor Prospect Yang Ingin Jadi Nasabah");
 		input = scanner.nextLine();
 		Integer.parseInt(input);
 		
@@ -96,30 +96,62 @@ public class Perusahaan {
 		resultProspect.setCustomerStatus(CustomerStatus.NASABAH);
 	}
 	
-	public void addNasabah()
-	{
-		
-		System.out.println("Input Nama Depan: ");
-		input = scanner.nextLine();
-		String noKtp = input;
-		
-		System.out.println("Input Nama Belakang: ");
-		input = scanner.nextLine();
-		String namaBelakang = input;
-	}
-	
 	public static void printProspectSummaryList()
 	{
-		for(Prospect orang : prospectList.values()) 
+		if(prospectList.size() == 0)
 		{
-			System.out.println(orang.printSummaryProspect());
+			System.out.println("Tidak Ada Prospect");
+		}
+		else
+		{
+			for(Prospect orang : prospectList.values()) 
+			{
+				System.out.println(orang.printSummaryProspect());
+			}
 		}
 	}
+
+	public static void addNasabah()
+	{
+		
+		System.out.println("Input Nomor Prospect Yang Ingin Jadi Nasabah");
+		int nomorProspect  = scanner.nextInt();
+		scanner.nextLine();
+		//get the Prospect object needed
+		
+		System.out.println("Input Nomor KTP: ");
+		String inputKTP = scanner.nextLine();
+		
+		System.out.println("Input StatusKK: ");
+		String statusKK = scanner.nextLine();
+		
+		System.out.println("Payment Method");
+		String paymentMethod = scanner.nextLine();
+		
+		Prospect resultProspect = prospectList.get(nomorProspect);
+		resultProspect.setCustomerStatus(CustomerStatus.NASABAH);
+		
+		prospectList.replace(nomorProspect, resultProspect);
+		
+		
+		
+		
+		Nasabah newNasabah = new Nasabah(resultProspect.getNamaDepan(), resultProspect.getNamaBelakang(), resultProspect.getJenisKelamin(),
+				resultProspect.getTanggalLahir(), resultProspect.getTempatLahir(), resultProspect.getPekerjaan(), resultProspect.getProspectID(),
+				resultProspect.getCustomerStatus(), Nasabah.makeIDNasabah(), inputKTP, statusKK, paymentMethod);
+		
+	}
 	
+	
+	
+	//==================================FUNGSI - FUNGSI MENU CUSTOMER===========================================================
 	public void printNasabahSummaryList()
 	{
 		
 	}
+	
+	
+	
 	
 }
 

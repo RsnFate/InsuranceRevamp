@@ -14,10 +14,10 @@ public class Nasabah extends Prospect{
 	private PaymentMethod paymentMethod;
 
 	
-	public Nasabah(String namaDepan, String namaBelakang, LocalDate tanggalLahir, String tempatLahir, String pekerjaan,
+	public Nasabah(String namaDepan, String namaBelakang, Gender jenisKelamin,LocalDate tanggalLahir, String tempatLahir, String pekerjaan,
 			int prospectID, CustomerStatus customerStatus, 
 			String idNasabah, String noKtp, StatusKK statusKK, PaymentMethod paymentMethod) {
-		super(namaDepan, namaBelakang, tanggalLahir, tempatLahir, pekerjaan, prospectID, customerStatus);
+		super(namaDepan, namaBelakang, jenisKelamin, tanggalLahir, tempatLahir, pekerjaan, prospectID, customerStatus);
 		// TODO Auto-generated constructor stub
 	}
 
