@@ -8,6 +8,7 @@ import enumLibrary.*;
 	
 public class Nasabah extends Prospect{
 	
+	private Prospect prospect;
 	private String idNasabah;
 	private String noKtp;
 	private StatusKK statusKK;
@@ -20,9 +21,6 @@ public class Nasabah extends Prospect{
 		super(namaDepan, namaBelakang, jenisKelamin, tanggalLahir, tempatLahir, pekerjaan, prospectID, customerStatus);
 		// TODO Auto-generated constructor stub
 	}
-
-
-	
 
 	public String getIDNasabah()
 	{

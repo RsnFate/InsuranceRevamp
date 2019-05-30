@@ -16,7 +16,7 @@ public class Prospect extends Person {
 		this.prospectID = prospectID;
 		this.customerStatus = customerStatus;
 	}
-	
+
 	public int getProspectID()
 	{
 		return prospectID;

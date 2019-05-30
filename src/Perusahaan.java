@@ -131,23 +131,34 @@ public class Perusahaan {
 		Prospect resultProspect = prospectList.get(nomorProspect);
 		resultProspect.setCustomerStatus(CustomerStatus.NASABAH);
 		
+		
 		prospectList.replace(nomorProspect, resultProspect);
 		
+		String idNasabah = makeIDNasabah(resultProspect.getProspectID());
 		
 		
+//		Nasabah newNasabah = new Nasabah(resultProspect.getNamaDepan(), resultProspect.getNamaBelakang(), resultProspect.getJenisKelamin(),
+//				resultProspect.getTanggalLahir(), resultProspect.getTempatLahir(), resultProspect.getPekerjaan(), resultProspect.getProspectID(),
+//				resultProspect.getCustomerStatus(), idNasabah, inputKTP, statusKK, paymentMethod);
 		
-		Nasabah newNasabah = new Nasabah(resultProspect.getNamaDepan(), resultProspect.getNamaBelakang(), resultProspect.getJenisKelamin(),
-				resultProspect.getTanggalLahir(), resultProspect.getTempatLahir(), resultProspect.getPekerjaan(), resultProspect.getProspectID(),
-				resultProspect.getCustomerStatus(), Nasabah.makeIDNasabah(), inputKTP, statusKK, paymentMethod);
+		Nasabah newNasabah = new Nasabah();
+		
 		
 	}
 	
-	
+	public static String makeIDNasabah(int prospectID)
+	{
+		LocalDate now = LocalDate.now();
+		long monthNow = now.getMonthValue();
+		long yearNow = now.getYear();
+		String idNasabah = String.format("%d/%d/%d", monthNow, yearNow, prospectID);
+		return idNasabah;
+	}
 	
 	//==================================FUNGSI - FUNGSI MENU CUSTOMER===========================================================
 	public void printNasabahSummaryList()
 	{
-		
+		String formatNasabahList = String
 	}
 	
 	
