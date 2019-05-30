@@ -8,10 +8,10 @@ import enumLibrary.*;
 
 
 public class Perusahaan {
-	private static Prospect resultProspect = new Prospect();
 	private static HashMap<Integer, Prospect> prospectList = new HashMap<Integer, Prospect>();
 	private static HashMap<String, String> nasabahList = new HashMap<String, String>();
 	private static HashMap<String, Product> productList = new HashMap<String, Product>();
+	private static Prospect resultProspect = prospectList
 	private static Scanner scanner = new Scanner(System.in);
 	
 	
